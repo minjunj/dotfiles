@@ -15,9 +15,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 # Enable command auto-correction
 ENABLE_CORRECTION="true"
 
-# Set the default editor
-export EDITOR='vim'
-
 # Customize the prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs time)
