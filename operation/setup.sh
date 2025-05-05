@@ -44,6 +44,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 zsh -c '
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+'
+zsh -c '
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 '
 
