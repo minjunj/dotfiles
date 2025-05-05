@@ -30,6 +30,12 @@ if [ -f ~/.p10k.zsh ] || [ -L ~/.p10k.zsh ]; then
 fi
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
+# 6. 기본 쉘을 zsh로 변경
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "Changing default shell to zsh..."
+    chsh -s "$(which zsh)"
+fi
+
 echo "Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect."
 
 # TODO: zsh 플러그인추가
