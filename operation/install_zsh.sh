@@ -52,7 +52,8 @@ ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 echo "
 ##########################
 #zsh plugin install pahse#
-##########################"
+##########################
+"
 
 # zsh-autosuggestions 24.11.26
 ZSH_AUTOSUGGESTIONS_COMMIT="0e810e5afa27acbd074398eefbe28d13005dbc15"
