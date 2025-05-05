@@ -23,12 +23,6 @@ echo "
 # Powerlevel10k 설치
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-
 echo "
 ######################
 #symlink create phase#
@@ -43,6 +37,12 @@ if [ -f ~/.zshrc ] || [ -L ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.backup.$(date +%s)
 fi
 ln -sfn $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # .p10k.zsh
 if [ -f ~/.p10k.zsh ] || [ -L ~/.p10k.zsh ]; then
