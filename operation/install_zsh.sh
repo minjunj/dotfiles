@@ -63,6 +63,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 # Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
 
+exec zsh
+
 echo '
 run these commonds in new zsh terminal
 
