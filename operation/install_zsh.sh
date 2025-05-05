@@ -21,7 +21,7 @@ echo "
 "
 
 # Powerlevel10k 설치
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --branch v1.20.0 --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 echo "
 ######################
@@ -54,11 +54,15 @@ echo "
 #zsh plugin install pahse#
 ##########################"
 
-# zsh-autosuggestions
+# zsh-autosuggestions 24.11.26
+ZSH_AUTOSUGGESTIONS_COMMIT="0e810e5afa27acbd074398eefbe28d13005dbc15"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+cd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git checkout $ZSH_AUTOSUGGESTIONS_COMMIT && cd -
 
-# zsh-syntax-highlighting
+# zsh-syntax-highlighting 24.11.22
+ZSH_SYNTAX_HIGHLIGHTING_COMMIT="5eb677bb0fa9a3e60f0eff031dc13926e093df92"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+cd zsh-syntax-highlighting && git checkout $ZSH_SYNTAX_HIGHLIGHTING_COMMIT && cd -
 
 # Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
