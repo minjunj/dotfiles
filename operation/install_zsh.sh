@@ -38,17 +38,6 @@ if [ -f ~/.zshrc ] || [ -L ~/.zshrc ]; then
 fi
 ln -sfn $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
-zsh -c '
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-'
-zsh -c '
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-'
-
 # .p10k.zsh
 if [ -f ~/.p10k.zsh ] || [ -L ~/.p10k.zsh ]; then
     mv ~/.p10k.zsh ~/.p10k.zsh.backup.$(date +%s)
@@ -64,14 +53,13 @@ echo "
 
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
-echo "Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect."
-
-zsh -c 'source ~/.zshrc'
+echo "
+Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect.
+to set zsh plugin.
+"
 
 # Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
-
-exec zsh
 
 # TODO: zsh 플러그인추가
 # TODO: csv파일을 보고 있는 것들만 설치하게 만들기
