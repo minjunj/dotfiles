@@ -24,5 +24,9 @@
 ## 사용 방법
 
 1. 저장소를 클론합니다.
-2. `setup.sh` 스크립트를 실행하여 환경을 자동으로 설정합니다. chmod +x setup.sh
+2. `setup.sh` 스크립트를 실행하여 환경을 자동으로 설정합니다.
+```bash
+   chmod +x ./operation/setup.sh
+   ./operation/setup.sh
+   ```
 3. 터미널을 재시작하거나 `exec zsh` 명령어로 Zsh 환경을 적용합니다.
