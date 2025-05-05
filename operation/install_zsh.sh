@@ -46,17 +46,25 @@ fi
 if [ ! -f $DOTFILES_DIR/zsh/.p10k.zsh ]; then
     touch ~/.p10k.zsh
 fi
-echo "
-####################
-#create ~/.p10k.zsh#
-####################"
 
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "
-Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect.
-to set zsh plugin.
-"
+##########################
+#zsh plugin install pahse#
+##########################"
+
+# zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+zsh -c '
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+'
+
+zsh -c ' source ~/.zshrc'
 
 # Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
