@@ -60,7 +60,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
-echo "
+# Zsh를 기본 셸로 변경
+chsh -s $(which zsh)
+
+echo '
 run these commonds in new zsh terminal
 
 to set zsh-syntax-highlighting
@@ -69,10 +72,7 @@ source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 apply zsh-syntax-highlighting
 source ~/.zshrc
-"
-
-# Zsh를 기본 셸로 변경
-chsh -s $(which zsh)
+'
 
 # TODO: zsh 플러그인추가
 # TODO: csv파일을 보고 있는 것들만 설치하게 만들기
