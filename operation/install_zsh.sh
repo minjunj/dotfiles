@@ -59,15 +59,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-zsh -c '
+
+echo "
+run these commonds in new zsh terminal
+
+to set zsh-syntax-highlighting
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-'
-
-zsh -c '
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-'
 
-zsh -c ' source ~/.zshrc'
+apply zsh-syntax-highlighting
+source ~/.zshrc
+"
 
 # Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
