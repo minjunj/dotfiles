@@ -1,25 +1,35 @@
 #!/bin/bash
 
-echo "zsh install pahse"
+echo "
+###################
+#zsh install pahse#
+###################
+"
 
 # 1. Zsh 설치
 sudo dnf install -y zsh
 
 # 2. Oh My Zsh 설치
+export RUNZSH=no
+export CHSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+echo "
+####################
+#p10k install pahse#
+####################
+"
 
-echo "p10k install pahse"
-
-# 3. Zsh를 기본 셸로 변경
-chsh -s $(which zsh)
-
-# 4. Powerlevel10k 설치
+# Powerlevel10k 설치
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-echo "symlink create phase"
+echo "
+######################
+#symlink create phase#
+######################
+"
 
-# 6. 기존 파일 백업 및 symlink 생성
+# 기존 파일 백업 및 symlink 생성
 DOTFILES_DIR=~/dotfiles
 
 # .zshrc
@@ -36,11 +46,17 @@ fi
 if [ ! -f $DOTFILES_DIR/zsh/.p10k.zsh ]; then
     touch ~/.p10k.zsh
 fi
-echo "create ~/.p10k.zsh"
+echo "
+####################
+#create ~/.p10k.zsh#
+####################"
 
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect."
+
+# Zsh를 기본 셸로 변경
+chsh -s $(which zsh)
 
 exec zsh
 
