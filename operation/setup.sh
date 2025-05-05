@@ -1,19 +1,23 @@
 #!/bin/bash
 
+echo "zsh install pahse"
+
 # 1. Zsh 설치
 sudo dnf install -y zsh
 
 # 2. Oh My Zsh 설치
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# 3. Powerlevel10k 설치
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# 4. Zsh를 기본 셸로 변경
+echo "p10k install pahse"
+
+# 3. Zsh를 기본 셸로 변경
 chsh -s $(which zsh)
 
-# 5. Dotfiles 리포지토리 클론 (필요시)
-# git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+# 4. Powerlevel10k 설치
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+echo "symlink create phase"
 
 # 6. 기존 파일 백업 및 symlink 생성
 DOTFILES_DIR=~/dotfiles
@@ -37,6 +41,8 @@ echo "create ~/.p10k.zsh"
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "Symlinks created. Please restart your terminal or run 'exec zsh' for changes to take effect."
+
+exec zsh
 
 # TODO: zsh 플러그인추가
 # TODO: csv파일을 보고 있는 것들만 설치하게 만들기
