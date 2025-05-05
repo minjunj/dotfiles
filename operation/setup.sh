@@ -28,6 +28,11 @@ ln -sfn $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
 if [ -f ~/.p10k.zsh ] || [ -L ~/.p10k.zsh ]; then
     mv ~/.p10k.zsh ~/.p10k.zsh.backup.$(date +%s)
 fi
+
+if [ ! -f $DOTFILES_DIR/zsh/.p10k.zsh ]; then
+    touch $DOTFILES_DIR/zsh/.p10k.zsh
+fi
+
 ln -sfn $DOTFILES_DIR/zsh/.p10k.zsh ~/.p10k.zsh
 
 # 6. 기본 쉘을 zsh로 변경
