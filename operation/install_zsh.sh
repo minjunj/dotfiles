@@ -6,8 +6,18 @@ echo "
 ###################
 "
 
+if command -v dnf >/dev/null 2>&1; then
+    PACKAGE_MANAGER="dnf"
+elif command -v apt-get >/dev/null 2>&1; then
+    PACKAGE_MANAGER="apt-get"
+else
+    echo "지원하는 패키지 매니저(dnf, apt-get)가 없습니다."
+    exit 1
+fi
+
 # 1. Zsh 설치
-sudo dnf install -y zsh
+dnf) sudo dnf install -y zsh ;;
+apt-get) sudo apt-get install -y zsh ;;
 
 # 2. Oh My Zsh 설치
 export RUNZSH=no
