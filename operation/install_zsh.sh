@@ -16,8 +16,10 @@ else
 fi
 
 # 1. Zsh 설치
-dnf) sudo dnf install -y zsh ;;
-apt-get) sudo apt-get install -y zsh ;;
+case "$PACKAGE_MANAGER" in
+    dnf) sudo dnf install -y zsh ;;
+    apt-get) sudo apt-get install -y zsh ;;
+esac
 
 # 2. Oh My Zsh 설치
 export RUNZSH=no

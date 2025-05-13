@@ -16,8 +16,10 @@ tail -n +2 "$CSV_FILE" | while IFS=',' read -r type method name path; do
     # 2. 패키지가 설치되어 있는지 확인
     if ! command -v "$name" >/dev/null 2>&1; then
         echo "$name 패키지가 설치되어 있지 않습니다. 설치를 진행합니다."
-        dnf) sudo dnf install -y "$name" ;;
-        apt-get) sudo apt-get install -y "$name" ;;
+        case "$PACKAGE_MANAGER" in
+            dnf) sudo dnf install -y "$name" ;;
+            apt-get) sudo apt-get install -y "$name" ;;
+        esac
     else
         echo "$name 패키지가 이미 설치되어 있습니다."
     fi
