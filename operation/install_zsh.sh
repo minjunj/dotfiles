@@ -80,6 +80,5 @@ source ~/.zshrc
 '
 
 exec zsh
-# TODO: zsh 플러그인추가
 # TODO: csv파일을 보고 있는 것들만 설치하게 만들기
 # TODO: csv파일을 기준으로 status를 확인하고 설치하게 만들기
