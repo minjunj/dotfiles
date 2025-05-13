@@ -1,0 +1,6 @@
+type,method,name,path
+default,ln,net-tools
+default,ln,vim
+default,ln,jq
+default,ln,htop
+default,ln,fzf
