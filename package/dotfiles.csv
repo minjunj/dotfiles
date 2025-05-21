@@ -4,3 +4,5 @@ default,ln,vim
 default,ln,jq
 default,ln,htop
 default,ln,fzf
+default,ln,kubectx
+default,ln,kubens

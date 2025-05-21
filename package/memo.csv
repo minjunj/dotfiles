@@ -1,20 +1,14 @@
 type,method,name,path
-default,ln,asdf
-default,ln,awscli
 default,ln,jq
 default,ln,htop
 default,ln,fzf
-default,ln,jwtcli
 
-# 설치법확인해봐야함
-default,ln,kubectl
-default,ln,kubectx
+
+# 설치법확인해봐야
+default,ln,jwtcli
+default,ln,asdf
+default,ln,awscli함
+default,ln,kubectl 
+default,ln,kubectx # apt install
 default,ln,kubeswitch
-default,ln,kubens
-default,ln,
-default,ln,
-default,ln,
-default,ln,
-default,ln,
-default,ln,
-default,ln,
+default,ln,kubens # apt install
